@@ -35,8 +35,6 @@ public class Product {
         this.category = category;
     }
 
-    // Getters and Setters
-
     public Long getId() {
         return id;
     }
