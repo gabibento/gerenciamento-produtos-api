@@ -1,11 +1,9 @@
 package com.produtos.gerenciador.controllers;
 
 import com.produtos.gerenciador.entities.Product;
-import com.produtos.gerenciador.exceptions.ProductNotFoundException;
 import com.produtos.gerenciador.services.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +19,7 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<Product> createProduct(@Valid @RequestBody Product product) {
         Product createdProduct = productService.insert(product);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdProduct);
+        return ResponseEntity.status(201).body(createdProduct);
     }
 
     @GetMapping
@@ -32,32 +30,20 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getById(@PathVariable Long id) {
-        try {
-            Product product = productService.findById(id);
-            return ResponseEntity.ok(product);
-        } catch (ProductNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
+        Product product = productService.findById(id);
+        return ResponseEntity.ok(product);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @Valid @RequestBody Product product) {
-        try {
-            Product updatedProduct = productService.update(id, product);
-            return ResponseEntity.ok(updatedProduct);
-        } catch (ProductNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
+        Product updatedProduct = productService.update(id, product);
+        return ResponseEntity.ok(updatedProduct);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
-        try {
-            productService.deleteById(id);
-            return ResponseEntity.noContent().build();
-        } catch (ProductNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
+        productService.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/search")
