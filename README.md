@@ -32,31 +32,32 @@ A API permite realizar operações CRUD básicas com a entidade `Product`:
 
 1. **Clone o repositório**:
    ```bash
-   git clone https://github.com/seu_usuario/gerenciador-produtos.git
+   git clone https://github.com/gabibento/gerenciador-produtos-api.git
    ```
 2. **Entre na pasta do projeto**:
-```bash
-cd gerenciador-produtos
-```
+   ```bash
+   cd gerenciador-produtos-api
+   ```
 3. Compile o projeto:
-```bash
-mvn clean install
-```
+   ```bash
+   mvn clean install
+   ```
 4. Execute a aplicação:
-```bash
-mvn spring-boot:run
-```
+   ```bash
+   mvn spring-boot:run
+   ```
 A API estará disponível em http://localhost:8080.
 
 **Documentação da API com Swagger**
 A documentação da API é gerada automaticamente com o Swagger e pode ser acessada em:
-Swagger UI: ``http://localhost:8080/swagger-ui.html``
+Swagger UI: http://localhost:8080/swagger-ui.html
+
 Através da interface do Swagger UI, é possível explorar e testar os endpoints da API diretamente no navegador.
 
 **Configurações do Banco de Dados**
 O projeto utiliza o banco de dados em memória H2. Para acessar o console do H2, vá para:
 
-Console H2: ``http://localhost:8080/h2-console``
+Console H2: http://localhost:8080/h2-console
 Utilize as seguintes credenciais para acesso:
 
 JDBC URL: jdbc:h2:mem:testdb
