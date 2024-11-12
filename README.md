@@ -21,6 +21,13 @@ A API permite realizar operações CRUD básicas com a entidade `Product`:
 - **Atualizar Produto**: `PUT /products/{id}`
 - **Deletar Produto**: `DELETE /products/{id}`
 
+## Arquitetura do Projeto
+Este projeto segue a arquitetura MVC, com as seguintes camadas principais:
+
+- Controller: Responsável pelos endpoints da API e por receber as requisições HTTP.
+- Service: Contém a lógica de negócios e manipulação de dados.
+- Repository: Camada de persistência de dados, interagindo com o banco de dados H2.
+
 ## Instalação
 
 ### Pré-requisitos
