@@ -34,27 +34,23 @@ Este projeto segue a arquitetura MVC, com as seguintes camadas principais:
 
 - Java 17+
 - Maven
+- IDE (IntelliJ IDEA, Eclipse, etc.)
 
 ### Passos para executar
 
 1. **Clone o repositório**:
-   ```bash
+   
+```bash
    git clone https://github.com/gabibento/gerenciador-produtos-api.git
-   ```
-2. **Entre na pasta do projeto**:
-   ```bash
-   cd gerenciador-produtos-api
-   ```
-3. Compile o projeto:
-   ```bash
-   mvn clean install
-   ```
-4. Execute a aplicação:
-   ```bash
-   mvn spring-boot:run
-   ```
-A API estará disponível em ``http://localhost:8080``
+```
+2. **Importe o projeto:**
+   - Abra o projeto na IDE e importe o projeto como um projeto Maven, caso não seja reconhecido automaticamente pela IDE
 
+3. **Execute a aplicação:**
+   - Navegue até a classe principal do projeto, chamada GerenciadorApplication, clique com o botão direito na classe e selecione Run 'GerenciadorApplication'.
+
+4. **Acesse a API:**
+   - Após a execução, a API estará disponível em http://localhost:8080.
 ## Documentação da API com Swagger
 
 A API é documentada automaticamente pelo Swagger. Para acessar e testar os endpoints, navegue até:
