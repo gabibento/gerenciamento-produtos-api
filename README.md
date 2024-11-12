@@ -55,9 +55,7 @@ Swagger UI: http://localhost:8080/swagger-ui.html
 Através da interface do Swagger UI, é possível explorar e testar os endpoints da API diretamente no navegador.
 
 **Configurações do Banco de Dados**
-O projeto utiliza o banco de dados em memória H2. Para acessar o console do H2, vá para:
-
-Console H2: http://localhost:8080/h2-console
+O projeto utiliza o banco de dados em memória H2. Para acessar o console do H2, vá para: http://localhost:8080/h2-console
 Utilize as seguintes credenciais para acesso:
 
 JDBC URL: jdbc:h2:mem:testdb
