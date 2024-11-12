@@ -48,14 +48,36 @@ A API permite realizar operações CRUD básicas com a entidade `Product`:
    ```
 A API estará disponível em ``http://localhost:8080``
 
-**Documentação da API com Swagger**
-- A documentação da API é gerada automaticamente com o Swagger e pode ser acessada em: http://localhost:8080/swagger-ui.html
-- Através da interface do Swagger UI, é possível explorar e testar os endpoints da API diretamente no navegador.
+## Documentação da API com Swagger
 
-**Configurações do Banco de Dados**
-- O projeto utiliza o banco de dados em memória H2. Para acessar o console do H2, vá para: http://localhost:8080/h2-console
-- Utilize as seguintes credenciais para acesso:
+A API é documentada automaticamente pelo Swagger. Para acessar e testar os endpoints, navegue até:
 
-JDBC URL: jdbc:h2:mem:testdb
-Username: sa
-Password: (deixe em branco)
+- **Swagger UI**: `http://localhost:8080/swagger-ui.html` – Interface gráfica para explorar e testar os endpoints diretamente no navegador.
+
+## Configuração do Banco de Dados
+
+A aplicação utiliza um banco de dados em memória H2. Para acessar o console do H2, vá até:
+
+- **Console H2**: `http://localhost:8080/h2-console`
+
+Utilize as credenciais abaixo para o acesso:
+
+- **JDBC URL**: `jdbc:h2:mem:testdb`
+- **Username**: `sa`
+- **Password**: (deixe em branco)
+
+> **Nota**: O banco de dados H2 é redefinido a cada reinicialização da aplicação, pois é voltado apenas para testes e desenvolvimento.
+
+## Autor
+<div align="left">
+  <a href="https://github.com/gabibento">
+    <img alt="Gabriella Maurea Bento" src="https://avatars.githubusercontent.com/u/143539144?v=4" width="115" style="border-radius:50%">
+  </a>
+  <br>
+  <sub><b>Gabriella Maurea Bento</b></sub><br>
+  <sub>RA: 1788213</sub><br>
+</div>
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
