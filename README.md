@@ -46,17 +46,15 @@ A API permite realizar operações CRUD básicas com a entidade `Product`:
    ```bash
    mvn spring-boot:run
    ```
-A API estará disponível em http://localhost:8080.
+A API estará disponível em ``http://localhost:8080``
 
 **Documentação da API com Swagger**
-A documentação da API é gerada automaticamente com o Swagger e pode ser acessada em:
-Swagger UI: http://localhost:8080/swagger-ui.html
-
-Através da interface do Swagger UI, é possível explorar e testar os endpoints da API diretamente no navegador.
+- A documentação da API é gerada automaticamente com o Swagger e pode ser acessada em: http://localhost:8080/swagger-ui.html
+- Através da interface do Swagger UI, é possível explorar e testar os endpoints da API diretamente no navegador.
 
 **Configurações do Banco de Dados**
-O projeto utiliza o banco de dados em memória H2. Para acessar o console do H2, vá para: http://localhost:8080/h2-console
-Utilize as seguintes credenciais para acesso:
+- O projeto utiliza o banco de dados em memória H2. Para acessar o console do H2, vá para: http://localhost:8080/h2-console
+- Utilize as seguintes credenciais para acesso:
 
 JDBC URL: jdbc:h2:mem:testdb
 Username: sa
