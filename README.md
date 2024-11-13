@@ -78,7 +78,6 @@ Utilize as credenciais abaixo para o acesso:
   </a>
   <br>
   <sub><b>Gabriella Maurea Bento</b></sub><br>
-  <sub>RA: 1788213</sub><br>
 </div>
 
 ## Licença
