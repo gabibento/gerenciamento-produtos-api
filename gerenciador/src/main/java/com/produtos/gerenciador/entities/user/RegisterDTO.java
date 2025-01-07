@@ -1,4 +1,4 @@
 package com.produtos.gerenciador.entities.user;
 
-public record RegisterDTO(String login, String password, String role) {
+public record RegisterDTO(String username, String password, String role) {
 }
