@@ -19,6 +19,10 @@ public class User implements UserDetails {
     private String password;
     private UserRole role;
 
+    public User(){
+
+    }
+
     public User(Long id, String username, String name, String password, UserRole role) {
         this.id = id;
         this.username = username;
