@@ -14,14 +14,14 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String email;
+    private String username;
     private String name;
     private String password;
     private UserRole role;
 
-    public User(Long id, String email, String name, String password, UserRole role) {
+    public User(Long id, String username, String name, String password, UserRole role) {
         this.id = id;
-        this.email = email;
+        this.username = username;
         this.name = name;
         this.password = password;
         this.role = role;
@@ -35,12 +35,9 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String email) {
+        this.username = username;
     }
 
     public String getName() {
@@ -64,7 +61,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return username;
     }
 
     @Override
