@@ -1,4 +1,4 @@
-package com.produtos.gerenciador.entities;
+package com.produtos.gerenciador.entities.user;
 
 public enum UserRole {
     ADMIN("admin"),

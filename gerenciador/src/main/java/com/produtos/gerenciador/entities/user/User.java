@@ -1,4 +1,4 @@
-package com.produtos.gerenciador.entities;
+package com.produtos.gerenciador.entities.user;
 
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
