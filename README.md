@@ -1,6 +1,6 @@
 # Gerenciador de Produtos API
 
-Uma API simples de gerenciamento de produtos, construída com Spring Boot e configurada com Swagger para documentação. A API permite criar, buscar, atualizar e deletar produtos de uma base de dados H2 em memória. Agora com autenticação e autorização utilizando Spring Security e JWT, garantindo maior segurança para as operações.
+Uma API simples de gerenciamento de produtos, construída com Spring Boot e configurada com Swagger para documentação. A API permite criar, buscar, atualizar e deletar produtos de uma base de dados H2 em memória. Agora com **autenticação e autorização utilizando Spring Security e JWT**, garantindo maior segurança para as operações.
 
 ## Tecnologias Utilizadas
 
@@ -13,32 +13,24 @@ Uma API simples de gerenciamento de produtos, construída com Spring Boot e conf
 - **JWT (JSON Web Token)**: Utilizado para autenticação stateless.
 - **BCrypt**: Para criptografia segura de senhas.
   
-## Funcionalidades
+## Controle de Acesso
 
-A API permite realizar operações CRUD básicas com a entidade `Product`:
-- **Criar Produto**: `POST /products`
-- **Buscar Todos os Produtos**: `GET /products`
-- **Buscar Produto por ID**: `GET /products/{id}`
-- **Buscar Produtos por Nome**: `GET /products/search?name={name}`
-- **Buscar Produtos por Categoria**: `GET /products/category?category={category}`
-- **Atualizar Produto**: `PUT /products/{id}`
-- **Deletar Produto**: `DELETE /products/{id}`
+A API possui diferentes níveis de acesso, dependendo da autenticação e do papel do usuário:
 
-### Novas Funcionalidades:
+- **Endpoints públicos** (acessíveis sem autenticação):
+    - `POST /auth/register`: Registro de novos usuários.
+    - `POST /auth/login`: Login para geração de token JWT.
+- **Endpoints protegidos por autenticação** (qualquer usuário autenticado pode acessar):
+    - `GET /products`: Lista todos os produtos.
+    - `GET /products/{id}`: Busca produto pelo ID.
+    - `GET /products/search?name={name}`: Busca produtos pelo nome.
+    - `GET /products/category?category={category}`: Busca produtos pela categoria.
+- **Endpoints restritos a administradores (ADMIN)**:
+    - `POST /products`: Criação de novos produtos.
+    - `PUT /products/{id}`: Atualização de produtos existentes.
+    - `DELETE /products/{id}`: Exclusão de produtos.
 
-- **Registro de Usuário**: `POST /auth/register`
-    
-    Permite registrar novos usuários, armazenando suas credenciais com criptografia de senha (BCrypt).
-    
-- **Login de Usuário**: `POST /auth/login`
-    
-    Autentica usuários e retorna um token JWT para acesso aos endpoints protegidos.
-    
-- **Endpoints Protegidos**:
-   - Apenas usuários autenticados podem acessar os endpoints de consulta.
-   - Apenas usuários com o papel `ADMIN` podem criar, editar ou deletar produtos.
 
-      
 ## Arquitetura do Projeto
 
 Este projeto segue a arquitetura MVC, com as seguintes camadas principais:
@@ -74,6 +66,7 @@ Este projeto segue a arquitetura MVC, com as seguintes camadas principais:
 
 4. **Acesse a API:**
    - Após a execução, a API estará disponível em http://localhost:8080.
+     
 ## Documentação da API com Swagger
 
 A API é documentada automaticamente pelo Swagger. Para acessar e testar os endpoints, navegue até:
@@ -86,16 +79,6 @@ A API é documentada automaticamente pelo Swagger. Para acessar e testar os endp
 - **Registro**: Para registrar usuários, use o endpoint `/auth/register`. A senha será criptografada com BCrypt.
 - **Login**: Para autenticar, use o endpoint `/auth/login`. Um token JWT será retornado.
 - **Acesso Protegido**: Adicione o token JWT no cabeçalho `Authorization` no formato `Bearer <seu_token>` para acessar os endpoints protegidos.
-
-### Controle de Acesso:
-
-- Endpoints públicos:
-    - `POST /auth/register`
-    - `POST /auth/login`
-- Endpoints restritos a usuários autenticados:
-    - `GET /products`, `GET /products/{id}`, `GET /products/search`, `GET /products/category`
-- Endpoints restritos a usuários com papel `ADMIN`:
-    - `POST /products`, `PUT /products/{id}`, `DELETE /products/{id}`
 
 ## Configuração do Banco de Dados
 
