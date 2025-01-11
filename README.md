@@ -2,6 +2,8 @@
 
 Uma API simples de gerenciamento de produtos, construída com Spring Boot e configurada com Swagger para documentação. A API permite criar, buscar, atualizar e deletar produtos de uma base de dados H2 em memória. Agora com **autenticação e autorização utilizando Spring Security e JWT**, garantindo maior segurança para as operações.
 
+> A implementação de autenticação e autorização com JWT foi desenvolvida com base na videoaula '[Segurança JWT com Spring Boot - Autenticação e Autorização](https://youtu.be/5w-YCcOjPD0?si=fcRJsZa07ei1KkFG)', com adaptações para atender aos requisitos do projeto.
+
 ## Tecnologias Utilizadas
 
 - **Java 17**
