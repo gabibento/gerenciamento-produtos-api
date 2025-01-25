@@ -1,6 +1,8 @@
 # Gerenciador de Produtos API
 
-Uma API simples de gerenciamento de produtos, construída com Spring Boot e configurada com Swagger para documentação. A API permite criar, buscar, atualizar e deletar produtos de uma base de dados H2 em memória.
+Uma API simples de gerenciamento de produtos, construída com Spring Boot e configurada com Swagger para documentação. A API permite criar, buscar, atualizar e deletar produtos de uma base de dados H2 em memória. Agora com **autenticação e autorização utilizando Spring Security e JWT**, garantindo maior segurança para as operações.
+
+> A implementação de autenticação e autorização com JWT foi desenvolvida com base na videoaula '[Segurança JWT com Spring Boot - Autenticação e Autorização](https://youtu.be/5w-YCcOjPD0?si=fcRJsZa07ei1KkFG)', com adaptações para atender aos requisitos do projeto.
 
 ## Tecnologias Utilizadas
 
@@ -9,24 +11,39 @@ Uma API simples de gerenciamento de produtos, construída com Spring Boot e conf
 - **H2 Database**: Banco de dados em memória para ambiente de desenvolvimento.
 - **Spring Data JPA**: Para persistência de dados.
 - **Springdoc OpenAPI**: Integração com Swagger para documentação da API.
+- **Spring Security**: Para autenticação e autorização.
+- **JWT (JSON Web Token)**: Utilizado para autenticação stateless.
+- **BCrypt**: Para criptografia segura de senhas.
+  
+## Controle de Acesso
 
-## Funcionalidades
+A API possui diferentes níveis de acesso, dependendo da autenticação e do papel do usuário:
 
-A API permite realizar operações CRUD básicas com a entidade `Product`:
-- **Criar Produto**: `POST /products`
-- **Buscar Todos os Produtos**: `GET /products`
-- **Buscar Produto por ID**: `GET /products/{id}`
-- **Buscar Produtos por Nome**: `GET /products/search?name={name}`
-- **Buscar Produtos por Categoria**: `GET /products/category?category={category}`
-- **Atualizar Produto**: `PUT /products/{id}`
-- **Deletar Produto**: `DELETE /products/{id}`
+- **Endpoints públicos** (acessíveis sem autenticação):
+    - `POST /auth/register`: Registro de novos usuários.
+    - `POST /auth/login`: Login para geração de token JWT.
+- **Endpoints protegidos por autenticação** (qualquer usuário autenticado pode acessar):
+    - `GET /products`: Lista todos os produtos.
+    - `GET /products/{id}`: Busca produto pelo ID.
+    - `GET /products/search?name={name}`: Busca produtos pelo nome.
+    - `GET /products/category?category={category}`: Busca produtos pela categoria.
+- **Endpoints restritos a administradores (ADMIN)**:
+    - `POST /products`: Criação de novos produtos.
+    - `PUT /products/{id}`: Atualização de produtos existentes.
+    - `DELETE /products/{id}`: Exclusão de produtos.
+
 
 ## Arquitetura do Projeto
+
 Este projeto segue a arquitetura MVC, com as seguintes camadas principais:
 
-- Controller: Responsável pelos endpoints da API e por receber as requisições HTTP.
-- Service: Contém a lógica de negócios e manipulação de dados.
-- Repository: Camada de persistência de dados, interagindo com o banco de dados H2.
+- **Controller**: Responsável pelos endpoints da API e por receber as requisições HTTP.
+- **Service**: Contém a lógica de negócios e manipulação de dados.
+- **Repository**: Camada de persistência de dados, interagindo com o banco de dados H2.
+- **Segurança**:
+    - Implementação de autenticação com JWT.
+    - Uso de filtros personalizados para validação de tokens em cada requisição.
+    - Configuração de controle de acesso baseada em roles (usuários `ADMIN` ou `USER`).
 
 ## Instalação
 
@@ -51,11 +68,19 @@ Este projeto segue a arquitetura MVC, com as seguintes camadas principais:
 
 4. **Acesse a API:**
    - Após a execução, a API estará disponível em http://localhost:8080.
+     
 ## Documentação da API com Swagger
 
 A API é documentada automaticamente pelo Swagger. Para acessar e testar os endpoints, navegue até:
 
 - **Swagger UI**: `http://localhost:8080/swagger-ui.html` – Interface gráfica para explorar e testar os endpoints diretamente no navegador.
+  Use o botão "Authorize" para autenticar-se inserindo o token JWT.
+
+## Configuração de Segurança
+
+- **Registro**: Para registrar usuários, use o endpoint `/auth/register`. A senha será criptografada com BCrypt.
+- **Login**: Para autenticar, use o endpoint `/auth/login`. Um token JWT será retornado.
+- **Acesso Protegido**: Adicione o token JWT no cabeçalho `Authorization` no formato `Bearer <seu_token>` para acessar os endpoints protegidos.
 
 ## Configuração do Banco de Dados
 
