@@ -19,6 +19,9 @@ public class TokenService {
     private String secret;
 
     public String generateToken(User user){
+        if (user.getUsername() == null || user.getUsername().isEmpty()) {
+            throw new RuntimeException("Error while generating token. Username cannot be null or empty");
+        }
         try{
             Algorithm algorithm = Algorithm.HMAC256(secret);
             return JWT.create()
